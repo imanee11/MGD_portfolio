@@ -4,6 +4,7 @@ import Hero from '../components/home/Hero';
 import { DarkModeContext } from '../context/DarkModeContext';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import Works from '../components/home/Works';
+import About from '../components/home/About';
 
 const Home = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -13,6 +14,7 @@ const Home = () => {
       <NavBar />
       <Hero />
       <Works/>
+      <About/>
 
       {/* Dark Mode Toggle */}
       <section className="fixed bottom-5 right-5 z-50">
