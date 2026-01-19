@@ -5,6 +5,7 @@ import { DarkModeContext } from '../context/DarkModeContext';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import Works from '../components/home/Works';
 import About from '../components/home/About';
+import Gallery from '../components/home/Gallery';
 
 const Home = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -15,8 +16,9 @@ const Home = () => {
       <Hero />
       <Works/>
       <About/>
+      <Gallery/>
 
-      {/* Dark Mode Toggle */}
+      {/* Dark Mode */}
       <section className="fixed bottom-5 right-5 z-50">
         <button
           onClick={() => setDarkMode(!darkMode)}
