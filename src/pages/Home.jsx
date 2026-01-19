@@ -26,7 +26,7 @@ const Home = () => {
           onClick={() => setDarkMode(!darkMode)}
           className="bg-brand-primary text-white p-3 rounded-full shadow-md transition-all duration-300"
         >
-          {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+          {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
         </button>
       </section>
     </>

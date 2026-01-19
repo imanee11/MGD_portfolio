@@ -6,19 +6,19 @@ import { images } from "../../constants";
 
 const image = [
     {
-        src: images.bg,
+        src: images.P1,
         title: "NATURE AND VICE VERSA",
         location: "Lofoten Islands, Norway",
         hasButton: true,
     },
     {
-        src: images.bg,
+        src: images.P2,
         title: "WAITING FOR THE STORM",
         location: "Lofoten Islands, Norway",
         hasButton: false,
     },
     {
-        src: images.bg,
+        src: images.P3,
         title: "FINDING PURE ENERGY",
         location: "Northern California",
         hasButton: false,
