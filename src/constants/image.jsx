@@ -1,3 +1,6 @@
-export default{
-    bg : require("../assets/images/bg.jpg")
+import bg from "../assets/images/bg.jpg";
+
+
+export default {
+    bg,
 }
