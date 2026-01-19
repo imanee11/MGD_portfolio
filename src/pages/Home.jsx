@@ -6,6 +6,7 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 import Works from '../components/home/Works';
 import About from '../components/home/About';
 import Gallery from '../components/home/Gallery';
+import Videos from '../components/home/Videos';
 
 const Home = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -17,6 +18,7 @@ const Home = () => {
       <Works/>
       <About/>
       <Gallery/>
+      <Videos/>
 
       {/* Dark Mode */}
       <section className="fixed bottom-5 right-5 z-50">
