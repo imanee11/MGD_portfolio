@@ -1,71 +1,55 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { DarkModeContext } from '../../context/DarkModeContext';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const NavBar = () => {
-    const { darkMode } = useContext(DarkModeContext);
-    const [scrolled, setScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { darkMode } = useContext(DarkModeContext);
+  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    const toggleMenu = () => {
-        setIsMobileMenuOpen(prev => !prev);
-    };
+  const bgClass = scrolled
+    ? 'bg-light-surface dark:bg-dark-surface shadow-md'
+    : 'bg-transparent';
 
-    const bgClass = scrolled
-        ? darkMode
-            ? 'bg-[#020f17] text-white'
-            : 'bg-white text-black shadow-md'
-        : 'bg-transparent text-white';
+  const textClass = 'text-black dark:text-white';
 
-    const borderClass = scrolled
-        ? darkMode
-            ? 'border-black/50'
-            : 'border-black/30'
-        : 'border-white/50';
+  const borderClass = scrolled
+    ? 'border-light-border dark:border-dark-border'
+    : 'border-white/50';
 
-    return (
-        <nav className={`fixed top-0 left-0 right-0 pt-7 px-[6vw] z-50 transition-all duration-300 ${bgClass}`}>
-            <div className={`flex items-center justify-between font-semibold border-b ${borderClass} transition-all duration-300 px-4 pb-7`}>
-                {/* Logo */}
-                <div>
-                    <p className='text-lg font-bold'>Imane Magada</p>
-                </div>
+  return (
+    <nav className={`fixed top-0 left-0 right-0 pt-7 px-[6vw] z-50 transition-all duration-300 ${bgClass} ${textClass}`}>
+      <div className={`flex items-center justify-between font-semibold border-b ${borderClass} transition-all duration-300 px-4 pb-7`}>
+        <p className="text-lg font-bold">Imane Magada</p>
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex gap-8 text-[14px]">
-                    <a href="#">About</a>
-                    <a href="#">Works</a>
-                    <a href="#">Photography</a>
-                    <a href="#">Videos</a>
-                </div>
+        <div className="hidden md:flex gap-8 text-[14px]">
+          <a href="#">About</a>
+          <a href="#">Works</a>
+          <a href="#">Photography</a>
+          <a href="#">Videos</a>
+        </div>
 
-                {/* Mobile Toggle */}
-                <div className="md:hidden">
-                    <button onClick={toggleMenu}>
-                        {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-                    </button>
-                </div>
-            </div>
+        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(p => !p)}>
+          {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
+      </div>
 
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className={`flex flex-col md:hidden gap-4 text-[14px] mt-4 px-4 pb-4 ${borderClass}`}>
-                    <a href="#">About</a>
-                    <a href="#">Works</a>
-                    <a href="#">Photography</a>
-                    <a href="#">Videos</a>
-                </div>
-            )}
-        </nav>
-    );
+      {isMobileMenuOpen && (
+        <div className={`flex flex-col md:hidden gap-4 text-[14px] mt-4 px-4 pb-4 ${borderClass}`}>
+          <a href="#">About</a>
+          <a href="#">Works</a>
+          <a href="#">Photography</a>
+          <a href="#">Videos</a>
+        </div>
+      )}
+    </nav>
+  );
 };
 
 export default NavBar;
