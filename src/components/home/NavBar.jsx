@@ -14,7 +14,7 @@ const NavBar = () => {
   }, []);
 
   const bgClass = scrolled
-    ? 'bg-light-surface dark:bg-dark-surface shadow-md'
+    ? 'bg-light-bg dark:bg-dark-bg shadow-md'
     : 'bg-transparent';
 
   const textClass = 'text-black dark:text-white';
